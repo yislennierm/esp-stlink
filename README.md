@@ -45,6 +45,15 @@ Grap the latest `esp-stlink-firmware.tgz` from the releases page and flash it us
         0x00000 firmware/0x00000.bin \
         0x10000 firmware/0x10000.bin
 
+### ESP32 port
+
+An ESP32 build is available using the new `env:esp32-stlink` environment in `platformio.ini`. It uses ESP-IDF, ESP32 GPIO4 for SWIM (add an external 1 kΩ pull-up) and GPIO5 for NRST by default. Build/flash with:
+
+```
+pio run -e esp32-stlink
+pio run -e esp32-stlink -t upload
+```
+
 ## Connecting the ESP to STM8
 <img src="imgs/connection-nodemcu.jpg" alt="NodeMCU connection" width="365" height="270" />
 

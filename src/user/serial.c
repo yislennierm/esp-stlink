@@ -1,3 +1,7 @@
+// ESP8266-only implementation; exclude from ESP32 builds.
+#ifdef ESP_PLATFORM
+void esp8266_serial_excluded(void) {}
+#else
 /**
  * Copyright (C) 2017 Hagen Fritsch
  *
@@ -123,3 +127,5 @@ void ICACHE_FLASH_ATTR serial_init(void) {
   system_os_task(serial_recvTask, serial_recvTaskPrio, serial_recvTaskQueue,
                  serial_recvTaskQueueLen);
 }
+
+#endif // ESP_PLATFORM

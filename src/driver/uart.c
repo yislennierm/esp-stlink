@@ -1,3 +1,7 @@
+// ESP8266-only implementation; exclude from ESP32 builds.
+#ifdef ESP_PLATFORM
+void esp8266_uart_excluded(void) {}
+#else
 /*
  * File	: uart.c
  * This file is part of Espressif's AT+ command set program.
@@ -299,3 +303,5 @@ uart_reattach()
 //  ETS_UART_INTR_ATTACH(uart_rx_intr_handler_ssc,  &(UartDev.rcv_buff));
 //  ETS_UART_INTR_ENABLE();
 }
+
+#endif // ESP_PLATFORM

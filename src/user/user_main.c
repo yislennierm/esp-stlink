@@ -1,3 +1,7 @@
+// ESP8266-only implementation; exclude from ESP32 builds.
+#ifdef ESP_PLATFORM
+void esp8266_user_main_excluded(void) {}
+#else
 /*
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of version 3 of the GNU General Public License as
@@ -61,3 +65,5 @@ void user_init(void) {
   uart0_sendStr("\r\nESP-STLINK\r\n");
   serial_init();
 }
+
+#endif // ESP_PLATFORM

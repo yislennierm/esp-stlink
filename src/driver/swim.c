@@ -1,3 +1,8 @@
+// ESP8266-only implementation; exclude from ESP32 builds.
+#ifdef ESP_PLATFORM
+// Empty placeholder to satisfy build systems that still pick up this file.
+void esp8266_swim_excluded(void) {}
+#else
 /**
  * Copyright (C) 2017 Hagen Fritsch
  *
@@ -344,3 +349,5 @@ void swim_init() {
   SET_PIN_HIGH(NRST);
   PIN_AS_OUTPUT(NRST);
 }
+
+#endif // ESP_PLATFORM
